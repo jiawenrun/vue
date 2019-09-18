@@ -6,16 +6,24 @@ import store from './store'
 import './registerServiceWorker'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+
 import Tophead from '@/components/Tophead.vue'
+import LoginTop from '@/components/LoginTop.vue';
+
+
 
 Vue.use(ElementUI);
-Vue.config.productionTip = false
-Vue.prototype.axios=axios
-Vue.component('Tophead',Tophead)
+Vue.config.productionTip = false;
+Vue.prototype.axios = axios;
+axios.defaults.url = 'http://localhost:81'
+Vue.component('Tophead', Tophead);
+
+Vue.component('logintop', LoginTop);
+
 
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')
